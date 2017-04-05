@@ -9,7 +9,7 @@ info:
 host: api.smartling.com
 schemes:
   - https
-basePath: /stirngs-api/v2
+basePath: /strings-api/v2
 produces:
   - application/json
 paths:
