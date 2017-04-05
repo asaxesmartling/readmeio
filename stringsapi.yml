@@ -286,6 +286,7 @@ definitions:
             processUid:
               description: If the request takes longer than 60 seconds to process, a `202` response will be returned, indicating the request has not failed, but is not yet complete. Use the processUid value to check the status of the request using the **Check Create String Status** request.
               type: string
+
   CreatedString:
     description: Information on the created or updated string
     type: object
