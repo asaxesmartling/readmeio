@@ -79,7 +79,7 @@ paths:
                 description: |-
                   Sets whether or not the string should be parsed as HTML. Accepted values are 'html', 'plain_text' and 'auto'. If set to auto, Smartling will attempt to detect the presence of HTML tags in the string.
                   
-                  When strings are parsed as HTML, Smartling will automatically ampersand-escape special characters such as angle brackets (<) and quotes (&quot;). For example, if you upload the string _Dave says &quot;hello&quot;_. and set format to HTML, Smartling will return the string with ampersand-escaping: _Dave says &amp;quot;hello&amp;quot;_.
+                  When strings are parsed as HTML, Smartling will automatically ampersand-escape special characters such as angle brackets (<) and quotes (&quot;). For example, if you upload the string _Dave says &quot;hello&quot;_. and set format to HTML, Smartling will return the string with ampersand-escaping: _Dave says &quot;hello&quot;_.
                 type: string
       responses:
         200:
