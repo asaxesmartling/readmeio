@@ -1,0 +1,480 @@
+swagger: '2.0'
+info:
+  title: Glossary API
+  description:  |-
+    The Glossary API allows you to manage glossaries in Smartling.
+  version: "2.0.0"
+host: api.smartling.com
+schemes:
+  - https
+basePath: /glossary-api/v2
+produces:
+  - application/json
+paths:
+  /accounts/{accountUid}/glossaries/{glossaryUid}:
+    get:
+      description: ''
+      summary: Get glossary by UID
+      operationId: Get glossary by UID
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: glossaryUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    put:
+      description: ''
+      summary: Modify glossary by UID
+      operationId: Modify glossary by UID
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/ModifyGlossaryByUidrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: glossaryUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    delete:
+      description: ''
+      summary: Delete glossary by UID
+      operationId: Delete glossary by UID
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: glossaryUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /glossary-api/v2/accounts/{accountUid}/glossaries/{glossaryUid}/clone:
+    post:
+      description: ''
+      summary: Clone glossary
+      operationId: Clone glossary
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CloneGlossaryrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: glossaryUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /glossary-api/v2/accounts/{accountUid}/glossaries:
+    get:
+      description: ''
+      summary: Get glossaries list
+      operationId: Get glossaries list
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+    post:
+      description: ''
+      summary: Create glossary
+      operationId: Create glossary
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateGlossaryrequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /auth-api/v2/authenticate:
+    post:
+      description: valid authentication
+      summary: authenticate
+      operationId: authenticate
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/AuthenticateRequest'
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Cache-Control
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security: []
+      x-unitTests:
+      - request:
+          method: POST
+          uri: /auth-api/v2/authenticate
+          headers:
+            Content-Type: application/json
+            Cache-Control: no-cache
+          body: >-
+            {
+                "userIdentifier": "{{userIdentifier}}",
+                "userSecret": "{{userSecret}}"
+            }
+        expectedResponse:
+          x-allowExtraHeaders: true
+          x-bodyMatchMode: NONE
+          x-arrayOrderedMatching: false
+          x-arrayCheckCount: false
+          x-matchResponseSchema: true
+          headers: {}
+        x-testShouldPass: true
+        x-testEnabled: true
+        x-testName: authenticate
+        x-testDescription: valid authentication
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /glossary-api/v2/accounts/{accountUid}/glossaries/016dfb77-484d-4f97-8f13-8478fee0c623:
+    get:
+      description: ''
+      summary: Get glossary by UID Manually
+      operationId: Get glossary by UID Manually
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /glossary-api/v2/accounts/{accountUid}/glossaries/{glossaryUid}/terms:
+    get:
+      description: ''
+      summary: Get terms of glossary w/o translations
+      operationId: Get terms of glossary w/o translations
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      - name: glossaryUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /glossary-api/v2/accounts/{accountUid}/locales/ru-RU/terms:
+    get:
+      description: ''
+      summary: Get terms w/ translation for multiple glossaries
+      operationId: Get terms w/ translation for multiple glossaries
+      produces:
+      - application/json
+      parameters:
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Authorization
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: accountUid
+        in: path
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ''
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+definitions:
+  CloneGlossaryrequest:
+    title: Clone glossaryRequest
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      sourceLocaleId:
+        description: ''
+        type: string
+    required:
+    - name
+    - description
+    - sourceLocaleId
+  CreateGlossaryrequest:
+    title: Create glossaryRequest
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      sourceLocaleId:
+        description: ''
+        type: string
+    required:
+    - name
+    - description
+    - sourceLocaleId
+  AuthenticateRequest:
+    title: authenticateRequest
+    type: object
+    properties:
+      userIdentifier:
+        description: ''
+        type: string
+      userSecret:
+        description: ''
+        type: string
+    required:
+    - userIdentifier
+    - userSecret
+  ModifyGlossaryByUidrequest:
+    title: Modify glossary by UIDRequest
+    type: object
+    properties:
+      name:
+        description: ''
+        type: string
+      description:
+        description: ''
+        type: string
+      sourceLocaleId:
+        description: ''
+        type: string
+    required:
+    - name
+    - description
+    - sourceLocaleId
