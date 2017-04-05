@@ -15,7 +15,7 @@ produces:
 paths:
   /projects/{projectId}:
     post:
-      summary: "**Create Strings**"
+      summary: "Create Strings"
       description: |-
         Uploads an array of strings to a Smartling project. A maximum of 100 strings can be created per request. A request with more than 100 items will return an error. Each string has a character limit of 10 000.
         
@@ -46,11 +46,11 @@ paths:
             properties:
               placeholderFormat:
                 description: |-
-                  Specifies a standard placeholder format. Accepted values are none, c, ios, python, java, yaml, qt, resx. For more detail on placeholders see **Placeholders in Resource Files**
+                  Specifies a standard placeholder format. Accepted values are none, c, ios, python, java, yaml, qt, resx. For more detail on placeholders see Placeholders in Resource Files
                 type: string
               placeholderFormatCustom:
                 description: |-
-                  Specifies a custom placeholder with a Java Regular Expression. For example \\[.+?\\] would capture all values surrounded by square brackets as placeholders. For more detail on placeholders see **Placeholders in Resource Files**
+                  Specifies a custom placeholder with a Java Regular Expression. For example \\[.+?\\] would capture all values surrounded by square brackets as placeholders. For more detail on placeholders see Placeholders in Resource Files
                 type: string
               namespace:
                 description: |-
@@ -61,15 +61,15 @@ paths:
                   The text of the string you want to create. This is the only required value for a string object.
                 type: string
               variant:
-                description: Creates **variant** metadata for a new string.
+                description: Creates variant metadata for a new string.
                 type: string
               callbackUrl:
                 description: |-
-                  If provided a callback request will be sent to this URL when translation for the string is complete. See our **callbacks** documentation for more details.
+                  If provided a callback request will be sent to this URL when translation for the string is complete. See our callbacks documentation for more details.
                 type: string
               callbackMethod:
                 description: |-
-                  With a given callbackUrl, this defines the http method to use. See our **callbacks** documentation for more details.
+                  With a given callbackUrl, this defines the http method to use. See our callbacks documentation for more details.
                 type: string
               instruction:
                 description: |-
@@ -113,7 +113,7 @@ paths:
 
   /projects/{projectId}/processes/{processUid}:
     get:
-      summary: "**Check string status**"
+      summary: "Check string status"
       description: |-
         If a Create Strings request takes longer than 60 seconds to process, a `202` response will be returned, indicating that the process of creating strings is continuing but not yet complete. This response will include a proccessUid value which can be used to check the progress of the request. This request returns a processState value of open, indicating that the request is still continuing, closed, indicating the request has successfully completed, and failed, meaning the request could not be completed.
         
@@ -143,16 +143,16 @@ paths:
 
   /strings-api/v2/projects/{projectId}/source-strings:
     get:
-      summary: "**Get source strings**"
+      summary: "Get source strings"
       description: |-
         Returns source strings from Smartling. You can get strings by specifying a file you want strings for, or you can specify individual strings by hashcode.
         
         _If you do not specify at least one of these parameters (`hashcodes` or `fileUri`) no results will be returned._
         
-        **Note** that if you use this call to get strings not created with the strings API, you may see differences in the response.
+        Note that if you use this call to get strings not created with the strings API, you may see differences in the response.
 
-        * You may see a value for `parsedStringText` but a `null` value for `stringText`. The `stringText` records the raw input received by the String API so will only appear for strings uploaded via String API.
-        * If you are getting a GDN string, the original placeholder values you used will not be returned, as these are not saved by Smartling. GDN strings will have placeholders in the format `{0}`, `{1}`, etc.
+        > You may see a value for `parsedStringText` but a `null` value for `stringText`. The `stringText` records the raw input received by the String API so will only appear for strings uploaded via String API.
+        > If you are getting a GDN string, the original placeholder values you used will not be returned, as these are not saved by Smartling. GDN strings will have placeholders in the format `{0}`, `{1}`, etc.
       tags: 
         - Get Source Strings
       parameters:
@@ -195,18 +195,18 @@ paths:
 
   /strings-api/v2/projects/{projectId}/translations:
     get:
-      summary: "**Get translations**"
+      summary: "Get translations"
       description: |-
         Returns translated strings from Smartling. You can get translations by specifying a file you want strings for, or you can specify individual strings by hashcode.
         
         _If you do not specify at least one of these parameters (`hashcodes` or `fileUri`) no results will be returned._
         
-        **Note** that if you use this call to get strings not created with the strings API, you may see differences in the response.
+        Note that if you use this call to get strings not created with the strings API, you may see differences in the response.
         
         Only authorized and active strings will be returned. Excluded, unauthorized & inactive strings will not be returned.
         
-        * You may see a value for `parsedStringText` but a `null` value for `stringText`. The `stringText` records the raw input received by the String API so will only appear for strings uploaded via String API.
-        * If you are getting a GDN string, the original placeholder values you used will not be returned, as these are not saved by Smartling. GDN strings will have placeholders in the format `{0}`, `{1}`, etc.
+        > You may see a value for `parsedStringText` but a `null` value for `stringText`. The `stringText` records the raw input received by the String API so will only appear for strings uploaded via String API.
+        > If you are getting a GDN string, the original placeholder values you used will not be returned, as these are not saved by Smartling. GDN strings will have placeholders in the format `{0}`, `{1}`, etc.
       tags: 
         - Get Translations
       parameters:
@@ -288,7 +288,7 @@ definitions:
               description: Total number of strings captured as a result of the request.
               type: number
             processUid:
-              description: If the request takes longer than 60 seconds to process, a `202` response will be returned, indicating the request has not failed, but is not yet complete. Use the processUid value to check the status of the request using the **Check Create String Status** request.
+              description: If the request takes longer than 60 seconds to process, a `202` response will be returned, indicating the request has not failed, but is not yet complete. Use the processUid value to check the status of the request using the Check Create String Status request.
               type: string
 
   CreatedString:
@@ -296,7 +296,7 @@ definitions:
     type: object
     properties:
       variant:
-        description: String **variant**
+        description: String variant
         type: string
       stringText:
         type: string
@@ -331,7 +331,7 @@ definitions:
     type: object
     properties:
       variant:
-        description: String **variant**
+        description: String variant
         type: string
       stringText:
         type: string
@@ -377,7 +377,7 @@ definitions:
               description: Total number of strings captured as a result of the request.
               type: string
             modifiedDate:
-              description: If the request takes longer than 60 seconds to process, a `202` response will be returned, indicating the request has not failed, but is not yet complete. Use the processUid value to check the status of the request using the **Check Create String Status** request.
+              description: If the request takes longer than 60 seconds to process, a `202` response will be returned, indicating the request has not failed, but is not yet complete. Use the processUid value to check the status of the request using the Check Create String Status request.
               type: string
             processStatistics:
               description: Information on the created or updated string
@@ -416,7 +416,7 @@ definitions:
     type: object
     properties:
       variant:
-        description: String **variant**
+        description: String variant
         type: string
       stringText:
         type: string
